@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <h2>Calculadora de Desconto</h2>
+    <label for="preco">Preço do Produto (R$):</label>
+    <input type="number" id="preco" step="0.01"><br><br>
+    <button onclick="calcular()">Calcular Desconto</button>
+    <p id="resultado"></p>
+
+    <script>
+        function calcularDesconto(preco) {
+            const desconto = 0.10; 
+            return preco - (preco * desconto);
+        }
+
+        function calcular() {
+            const precoProduto = parseFloat(document.getElementById("preco").value);
+            
+            if (!isNaN(precoProduto) && precoProduto > 0) {
+                const precoComDesconto = calcularDesconto(precoProduto);
+                document.getElementById("resultado").innerText = `O novo preço com 10% de desconto é: R$ ${precoComDesconto.toFixed(2)}`;
+            } else {
+                document.getElementById("resultado").innerText = "Por favor, digite um preço válido.";
+            }
+        }
+    </script>
+</body>
+</html>

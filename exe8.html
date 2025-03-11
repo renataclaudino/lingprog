@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Peso</title>
+    <script>
+        function calcularPeso() {
+            let peso = parseFloat(document.getElementById("peso").value);
+            
+            if (isNaN(peso)) {
+                alert("Por favor, insira um valor válido.");
+                return;
+            }
+            
+            let pesoGramas = peso * 1000;
+            
+            document.getElementById("resultado").innerHTML = `
+                Peso em gramas: ${pesoGramas.toFixed(2)} g`;
+        }
+    </script>
+</head>
+<body>
+    <h2>Calculadora de Peso</h2>
+    <label for="peso">Digite seu peso atual (kg): </label>
+    <input type="number" id="peso" step="0.01"><br><br>
+    
+    <button onclick="calcularPeso()">Calcular</button>
+    
+    <h3 id="resultado"></h3>
+</body>
+</html>

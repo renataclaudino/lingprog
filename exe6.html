@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Salário</title>
+    <script>
+        function calcularSalario() {
+            let salarioFixo = parseFloat(document.getElementById("salarioFixo").value);
+            let vendas = parseFloat(document.getElementById("vendas").value);
+            
+            if (isNaN(salarioFixo) || isNaN(vendas)) {
+                alert("Por favor, insira valores válidos.");
+                return;
+            }
+            
+            let comissao = vendas * 0.04;
+            let salarioFinal = salarioFixo + comissao;
+            
+            document.getElementById("resultado").innerHTML = `Comissão: R$ ${comissao.toFixed(2)} <br> Salário Final: R$ ${salarioFinal.toFixed(2)}`;
+        }
+    </script>
+</head>
+<body>
+    <h2>Calculadora de Salário com Comissão</h2>
+    <label for="salarioFixo">Salário Fixo (R$): </label>
+    <input type="number" id="salarioFixo" step="0.01"><br><br>
+    
+    <label for="vendas">Valor das Vendas (R$): </label>
+    <input type="number" id="vendas" step="0.01"><br><br>
+    
+    <button onclick="calcularSalario()">Calcular</button>
+    
+    <h3 id="resultado"></h3>
+</body>
+</html>

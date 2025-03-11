@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Área do Trapézio</title>
+    <script>
+        function calcularArea() {
+            let baseMaior = parseFloat(document.getElementById("baseMaior").value);
+            let baseMenor = parseFloat(document.getElementById("baseMenor").value);
+            let altura = parseFloat(document.getElementById("altura").value);
+            
+            if (isNaN(baseMaior) || isNaN(baseMenor) || isNaN(altura)) {
+                alert("Por favor, insira valores válidos.");
+                return;
+            }
+            
+            let area = ((baseMaior + baseMenor) * altura) / 2;
+            
+            document.getElementById("resultado").innerHTML = `Área do trapézio: ${area.toFixed(2)} m²`;
+        }
+    </script>
+</head>
+<body>
+    <h2>Calculadora de Área do Trapézio</h2>
+    <label for="baseMaior">Base Maior (m): </label>
+    <input type="number" id="baseMaior" step="0.01"><br><br>
+    
+    <label for="baseMenor">Base Menor (m): </label>
+    <input type="number" id="baseMenor" step="0.01"><br><br>
+    
+    <label for="altura">Altura (m): </label>
+    <input type="number" id="altura" step="0.01"><br><br>
+    
+    <button onclick="calcularArea()">Calcular</button>
+    
+    <h3 id="resultado"></h3>
+</body>
+</html>
